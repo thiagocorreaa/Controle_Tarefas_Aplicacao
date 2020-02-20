@@ -1,0 +1,125 @@
+﻿.blog-card {
+    height: 500px;
+    margin: 2px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, .5);
+    text-align: center;
+}
+
+.card-solic {
+    background-color: #ffffff;
+}
+.card-title{
+  text-align: center;
+  width: 100%;
+}
+.buttonContainerCard {
+    margin: 5px;
+    position: absolute;
+    bottom: 0;
+}
+.buttonCard {
+    margin: 5px;
+}
+.dialog {
+  background: #ddd;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  float: right;
+  height: 20px;
+  margin: 20px;
+  position: relative;
+  width: 20px; 
+}
+.card-input {
+    width: 100%;
+    min-width: 0px !important;
+}
+
+.card-data-container {
+    overflow-y: scroll;
+    max-height: 73%;
+}
+
+.card-label {
+    text-align: left !important;
+    white-space:nowrap !important;
+    padding-right: 5px;
+    padding-left: 5px;
+    overflow: hidden;
+    max-width:100%;
+    text-overflow: ellipsis !important;
+}
+
+.card-input-field {
+    padding-right: 3px;
+    padding-left: 3px;
+    max-width:100%;
+}
+
+.card-grid-cell {
+    display: inline-block;
+    padding-left: 1px;
+    padding-right: 1px;
+}
+
+div.card-grid {
+  border: none;
+  background-color: #EEE7DB;
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+.divTable.card-grid .divTableCell, .divTable.card-grid .divTableHead {
+  border: none;
+  padding: 3px 2px;
+}
+.divTable.card-grid .divTableBody .divTableCell {
+  font-size: 13px;
+}
+.divTable.card-grid .divTableRow:nth-child(even) {
+  background: #F5C8BF;
+}
+.divTable.card-grid .divTableHeading {
+  background: #DB0B0B;
+}
+.divTable.card-grid .divTableHeading .divTableHead {
+  font-size: 17px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+  border-left: 2px solid #A40808;
+}
+.card-grid .tableFootStyle {
+  font-size: 13px;
+}
+.card-grid .tableFootStyle .links {
+	 text-align: right;
+}
+.card-grid .tableFootStyle .links a{
+  display: inline-block;
+  background: #FFFFFF;
+  color: #A40808;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+.card-grid.outerTableFooter {
+  border-top: none;
+}
+.card-grid.outerTableFooter .tableFootStyle {
+  padding: 3px 5px; 
+}
+.card-grid.col-md-10 {
+    padding: 0px;
+}
+
+.no-gutter {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.no-gutter > [class*="col-"] {
+     padding-right: 0;
+     padding-left: 0;
+}

@@ -1,0 +1,42 @@
+﻿@using Controle_Tarefas.Helper;
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript" src="@Url.ContentVersioned("~/Scripts/paramsDataTables.js")"></script>
+<script type="text/javascript" src="@Url.ContentVersioned("~/Scripts/libGestao.js")"></script>
+<script type="text/javascript" src="@Url.ContentVersioned("~/Scripts/DataTables/jquery.dataTables.js")"></script>
+<script type="text/javascript" src="@Url.ContentVersioned("~/Scripts/DataTables/dataTables.buttons.js")"></script>
+<script type="text/javascript" src="@Url.ContentVersioned("~/Scripts/DataTables/dataTables.select.js")"></script>
+
+<div class="jumboverti">
+    <div class="row-fluid text-left">
+        <div class="row">
+            <h4 class="text-center">Controle de Tarefas</h4>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+
+        <div class="panel-heading">
+            <h4>
+                <a class="faArrowIcon" role="button" data-toggle="collapse" href="#BC" aria-expanded="true"></a>
+                Gestão de Tarefas              
+            </h4>
+        </div>
+
+        <div id="BC" class="panel-collapse collapse">
+            <div class="form-group">
+                
+            </div>
+
+            <table id="tarefa_tabela-table" class="display compact nowrap" style="width:98%">
+                <thead>
+                    <tr></tr>
+                </thead>
+            </table>
+
+        </div>
+    </div>
+</div>
