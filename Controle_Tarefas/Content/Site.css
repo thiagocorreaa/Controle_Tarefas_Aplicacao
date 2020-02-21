@@ -1652,38 +1652,24 @@ th.grid-header.colRoja {
   color: white;
 }
 
-.faArrowIcon {
+.faArrowIcon:before {
     position: relative;
     color: #752887;
     font-family: FontAwesome;
     top: 0;
     left: -5px;
     padding-right: 10px;
-}
-
-.faArrowIcon:before {
-
-        font-family: FontAwesome;
-    top: 0;
-    left: -5px;
-    padding-right: 10px;content: "\f0fe";
+    content: "\f146";
 }
 
 .faArrowIcon.collapsed:before {
+    position: relative;
+    color: #752887;
     font-family: FontAwesome;
     top: 0;
     left: -5px;
     padding-right: 10px;
     content: "\f0fe";
-
-}
-
-.faArrowIcon.in:before {
-    font-family: FontAwesome;
-    top: 0;
-    left: -5px;
-    padding-right: 10px;
-    content: "\f146";
 }
 
 .row {
@@ -1742,13 +1728,6 @@ th.grid-header.colRoja {
         cursor: not-allowed;
         background-color: #eeeeee;
     }
-
-.defesa-text-area {
-  float: right;
-  width: calc(100% - 45px);
-  height: auto;
-  background-color: white;
-}
 
 .glow {
     border: 2px solid #dadada;

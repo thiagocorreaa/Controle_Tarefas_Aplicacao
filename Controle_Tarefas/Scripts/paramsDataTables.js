@@ -211,17 +211,17 @@ function createForm(dt, action, title){
 
 function creating_element(e, dt, node, config){
     createForm(dt, config['name'], config['text'])
-    applyInputMasks();
+   
 }
 
 function edit_element(e, dt, node, config){
     createForm(dt, config['name'], config['text'])
-    applyInputMasks();
+  
 }
 
 function remove_element(e, dt, node, config){
     createForm(dt, config['name'], config['text'])
-    applyInputMasks();
+   
 }
 
 var create_button = {
@@ -241,40 +241,6 @@ var remove_button = {
             'text': 'Remover',
             'action': remove_element,
         }
-
-function changeRedeRegionais(name, val) {
-    items_redes = $.grep(options.redes_regionais, function (item) { return item[name.toLowerCase()] == val });
-    redes = $.unique($.map(items_redes, function (item) { return item.rede }));
-    cod_redes = $.unique($.map(items_redes, function (item) { return item.cod_rede }));
-
-    items_regionais = $.grep((val != '') ? options.redes_regionais : [], function (item) { return item['cod_rede'] == items_redes[0]['cod_rede'] });
-    cod_regionais = $.unique($.map(items_regionais, function (item) { return item.cod_regional}));
-    regionais = $.unique($.map(items_regionais, function (item) { return item.regional }));
-
-    cod_regionais.unshift('')
-
-
-    if (name == 'Cod_Rede') {
-        setNome('Rede', redes)
-        cleanSetOptions('Cod_Regional', cod_regionais)
-        setNome('Regional', [''])
-    }
-    else if (name == 'Cod_Regional') {
-        if (val != '') {
-            setNome('Rede', redes)
-            setSelected('Cod_Rede', cod_redes)
-            cleanSetOptions('Cod_Regional', cod_regionais)
-            setSelected('Cod_Regional', [val])
-            items_regional_nome = $.grep(options.redes_regionais, function (item) { return item['cod_regional'] == val });
-            regionais_nome = $.unique($.map(items_regional_nome, function (item) { return item.regional }));
-            setNome('Regional', regionais_nome)
-        }
-        else {
-            setNome('Regional', [''])
-        }
-        
-    }
-}
 
 function getOptions(action, elem, data) {
     var options_return = []
