@@ -16,9 +16,29 @@ namespace DataService.Controle_Tarefas
                 return repository.ListAll();
         }
 
-        public void Edit(models.Tarefas tarefa)
+        public bool Edit(models.Tarefas tarefa)
         {
-            throw new NotImplementedException();
+            bool updated = false;
+
+            using (var uow = DbHelper.UnitOfWork(nameof(TarefasContext)))
+            using (var repository = uow.Repository<models.Tarefas>())
+            {
+                var tarefaEdit = repository.ListWhere(new List<Expression<Func<models.Tarefas, object>>> { }, s => s.Id_Tarefa == tarefa.Id_Tarefa).FirstOrDefault();
+
+                tarefaEdit.Data_Edicao = DateTime.Now;
+                tarefaEdit.Descricao = tarefa.Descricao;
+                tarefaEdit.Titulo = tarefa.Titulo;
+                tarefaEdit.Data_Conclusao = tarefa.Data_Conclusao;
+                tarefaEdit.Status = tarefa.Status;
+
+                repository.Update(tarefaEdit);     
+                
+                uow.SaveChanges();
+
+                updated = true;
+            }
+
+            return updated;
         }
 
         public bool Remove(models.Tarefas tarefa)
@@ -29,8 +49,10 @@ namespace DataService.Controle_Tarefas
             {
                 using (var repository = uow.Repository<models.Tarefas>())
                 {
-                    var tarefaRemove = repository.ListWhere(new List<Expression<Func<models.Tarefas, object>>> { }, s => s.Id_Tarefa == tarefa.Id_Tarefa);
-                    repository.Delete(tarefaRemove.FirstOrDefault());
+                    var tarefaRemove = repository.ListWhere(new List<Expression<Func<models.Tarefas, object>>> { }, s => s.Id_Tarefa == tarefa.Id_Tarefa).FirstOrDefault();
+                    tarefaRemove.Data_Remocao = DateTime.Now;
+
+                    repository.Delete(tarefaRemove);
                     uow.SaveChanges();
 
                     rowRemoved = true;
@@ -48,6 +70,8 @@ namespace DataService.Controle_Tarefas
             {
                 using (var repository = uow.Repository<models.Tarefas>())
                 {
+                    tarefa.Data_Criacao = DateTime.Now;                   
+                   
                     repository.Add(tarefa);
                     uow.SaveChanges();
 

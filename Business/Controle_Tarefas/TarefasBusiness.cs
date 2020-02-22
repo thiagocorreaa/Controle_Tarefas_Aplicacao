@@ -17,7 +17,7 @@ namespace Business.Controle_Tarefas
                 return service.ListAll().ToList()
                     .Where(v => v.Descricao.Contains(search) || v.Titulo.Contains(search))
                     .OrderByDescending(x => x.Data_Criacao)
-                    .Skip(start * length)
+                    .Skip(start)
                     .Take(length)
                     .ToList();
             }

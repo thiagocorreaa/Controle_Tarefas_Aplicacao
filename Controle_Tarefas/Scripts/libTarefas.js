@@ -10,7 +10,8 @@ $(document).ready(function () {
         $(this).children("input[name=acao]").val(this.submited);
     });
 
-    options['ative'] = [ 'Ativo', 'Inativo'];
+    options['ative'] = ['Ativo', 'Inativo'];
+    options['simnao'] = ['Sim', 'Não'];
 
     function createSchemas() {
         schemas_tables = {
@@ -24,6 +25,7 @@ $(document).ready(function () {
                     { 'name': 'Data_Edicao_Format', 'label': 'Data Edição', 'form': { 'disabled': ['create', 'edit', 'remove'] } },
                     { 'name': 'Data_Remocao_Format', 'label': 'Data Remoção', 'form': { 'disabled': ['create', 'edit', 'remove'] } },
                     { 'name': 'Data_Conclusao_Format', 'label': 'Data Conclusão', 'form': { 'disabled': ['create', 'edit', 'remove'] } },
+                   // { 'visible':false, 'form': {  'title': 'Tarefa Concluída', 'type': 'select', 'options': options['simnao'] } },
                 ],
                 'buttons': [
                     create_button,

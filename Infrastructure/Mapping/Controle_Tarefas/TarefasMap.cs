@@ -16,10 +16,10 @@ namespace Infrastructure.Mapping.Controle_Tarefas
             this.Property(t => t.Titulo).HasColumnName("Titulo");
             this.Property(t => t.Status).HasColumnName("Status");
             this.Property(t => t.Descricao).HasColumnName("Descricao");
-            this.Property(t => t.Data_Remocao).HasColumnName("Data_Remocao");
-            this.Property(t => t.Data_Edicao).HasColumnName("Data_Edicao");
-            this.Property(t => t.Data_Criacao).HasColumnName("Data_Criacao");
-            this.Property(t => t.Data_Conclusao).HasColumnName("Data_Conclusao");
+            this.Property(t => t.Data_Remocao).HasColumnName("Data_Remocao").HasColumnType("datetime"); ;
+            this.Property(t => t.Data_Edicao).HasColumnName("Data_Edicao").HasColumnType("datetime"); ;
+            this.Property(t => t.Data_Criacao).HasColumnName("Data_Criacao").HasColumnType("datetime"); ;
+            this.Property(t => t.Data_Conclusao).HasColumnName("Data_Conclusao").HasColumnType("datetime"); ;
         }
     }
 }
