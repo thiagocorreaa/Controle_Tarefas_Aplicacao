@@ -23,9 +23,9 @@ $(document).ready(function () {
                     { 'name': 'Descricao', 'label': 'Descrição', 'form': { 'title': 'Descrição' } },
                     { 'name': 'Data_Criacao_Format', 'label': 'Data Inclusão', 'form': { 'disabled': ['create', 'edit', 'remove'] } },
                     { 'name': 'Data_Edicao_Format', 'label': 'Data Edição', 'form': { 'disabled': ['create', 'edit', 'remove'] } },
-                    { 'name': 'Data_Remocao_Format', 'label': 'Data Remoção', 'form': { 'disabled': ['create', 'edit', 'remove'] } },
+                    //{ 'name': 'Data_Remocao_Format', 'label': 'Data Remoção', 'form': { 'disabled': ['create', 'edit', 'remove'] } },
                     { 'name': 'Data_Conclusao_Format', 'label': 'Data Conclusão', 'form': { 'disabled': ['create', 'edit', 'remove'] } },
-                   // { 'visible':false, 'form': {  'title': 'Tarefa Concluída', 'type': 'select', 'options': options['simnao'] } },
+                    { 'name': 'Tarefa_Concluida', 'label': 'Tarefa Concluída', 'form': { 'title': 'Tarefa_Concluida', 'type': 'select', 'options': options['simnao'] } },
                 ],
                 'buttons': [
                     create_button,
@@ -55,7 +55,7 @@ $(document).ready(function () {
         columns = columns.map(function (elem) { return { 'data': elem['name'], 'visible': typeof (elem['name']) != 'undefined' && elem['name'].toLowerCase() == 'ativo' ? false : elem['visible'] } })
        
         var buttons = schemas_tables[type_table]['buttons']
-
+        
         var datatable = $('#' + type_table + '-table').DataTable({
             dom: 'Bfrtip',
             autoWidth: false,            

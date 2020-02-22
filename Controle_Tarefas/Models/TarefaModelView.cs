@@ -7,11 +7,6 @@ namespace Controle_Tarefas.Models
 {
     public class TarefaModelView
     {
-        public TarefaModelView()
-        {
-            Tarefa_Concluida = Data_Conclusao.HasValue ? "Sim" : "Não";
-        }
-
         public int Id_Tarefa { get; set; }
         public string Titulo { get; set; }        
         public string Descricao { get; set; }
