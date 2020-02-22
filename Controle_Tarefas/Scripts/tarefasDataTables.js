@@ -200,13 +200,29 @@ function createForm(dt, action, title){
             if (dt.rows( { selected: true } ).nodes()[0]){
                 data.push({ name: 'id', value: dt.rows( { selected: true } ).nodes()[0].id })
             }
-            if (type_table === 'cdi' || type_table === 'tecnologiasValores' || type_table === 'segmentosValores') {
-                data = cleanParams(data, type_table);
-            }
+            
             getSetTableData(type_table, data)
 
         });
     }
+}
+
+function getSetTableData(type_table, data) {
+    $.ajax({
+        "async": true,
+        "crossDomain": true,
+        "url": "/home/GestaoTarefas?acao=" + window._action,
+        "method": "POST",
+        "data": data,
+        success: function (response) {
+            if (type_table in tables) {
+                tables[type_table].ajax.reload();
+            }
+            $("#" + type_table + "-form_seguinte").unbind('click')
+            $("#" + type_table + "-form").modal('hide');
+            //getOpcoes(type_table);
+        },
+    });
 }
 
 function creating_element(e, dt, node, config){

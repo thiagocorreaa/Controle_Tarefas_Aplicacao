@@ -10,18 +10,20 @@ $(document).ready(function () {
         $(this).children("input[name=acao]").val(this.submited);
     });
 
+    options['ative'] = [ 'Ativo', 'Inativo'];
 
     function createSchemas() {
         schemas_tables = {
             'tarefa_tabela': {
                 'fields': [
+                    { 'name': 'Id_Tarefa', 'visible': false },
                     { 'name': 'Titulo', 'label': 'Título', 'form': { 'title': 'Título', 'required': 'required' } },
-                    { 'name': 'Status', 'label': 'Status', 'form': { 'title': 'Status', 'required': 'required' } },
+                    { 'name': 'Status_Descricao', 'label': 'Status', 'form': { 'title': 'Status', 'required': 'required', 'type': 'select', 'options': options['ative'] } },
                     { 'name': 'Descricao', 'label': 'Descrição', 'form': { 'title': 'Descrição' } },
-                    { 'name': 'Data_Criacao', 'label': 'Data Inclusão' },
-                    { 'name': 'Data_Edicao', 'label': 'Data Edição' },
-                    { 'name': 'Data_Remocao', 'label': 'Data Remoção' },
-                    { 'name': 'Data_Conclusao', 'label': 'Data Conclusão' },
+                    { 'name': 'Data_Criacao_Format', 'label': 'Data Inclusão', 'form': { 'disabled': ['create', 'edit', 'remove'] } },
+                    { 'name': 'Data_Edicao_Format', 'label': 'Data Edição', 'form': { 'disabled': ['create', 'edit', 'remove'] } },
+                    { 'name': 'Data_Remocao_Format', 'label': 'Data Remoção', 'form': { 'disabled': ['create', 'edit', 'remove'] } },
+                    { 'name': 'Data_Conclusao_Format', 'label': 'Data Conclusão', 'form': { 'disabled': ['create', 'edit', 'remove'] } },
                 ],
                 'buttons': [
                     create_button,
@@ -32,6 +34,7 @@ $(document).ready(function () {
         }
     }
 
+    
     createSchemas();
     createTables();   
     enableButtons(tables['tarefa_tabela']);

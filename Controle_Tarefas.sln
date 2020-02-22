@@ -5,17 +5,17 @@ VisualStudioVersion = 15.0.28307.705
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controle_Tarefas", "Controle_Tarefas\Controle_Tarefas.csproj", "{52CB4D24-CE0D-434A-91D7-7C48DA7E4531}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "..\Business\Business.csproj", "{5CD9618A-AFF6-4F2D-BD20-3E5A212CF343}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tarefas.Business", "Business\Tarefas.Business.csproj", "{5CD9618A-AFF6-4F2D-BD20-3E5A212CF343}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business.Contracts", "..\Business.Contracts\Business.Contracts.csproj", "{C185B503-A6CE-4734-9CA0-E26AEE098372}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tarefas.Business.Contracts", "Business.Contracts\Tarefas.Business.Contracts.csproj", "{C185B503-A6CE-4734-9CA0-E26AEE098372}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataService", "..\DataService\DataService.csproj", "{17F0142A-BC13-4B20-87CD-CA730E65516E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tarefas.DataService", "DataService\Tarefas.DataService.csproj", "{17F0142A-BC13-4B20-87CD-CA730E65516E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "..\Infrastructure\Infrastructure.csproj", "{24DCA474-4AC8-4971-AFC2-3CA60B1BF36A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tarefas.Infrastructure", "Infrastructure\Tarefas.Infrastructure.csproj", "{24DCA474-4AC8-4971-AFC2-3CA60B1BF36A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "..\Models\Models.csproj", "{520FED87-49F7-42EB-8EF1-53C309FD492D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tarefas.Models", "Models\Tarefas.Models.csproj", "{520FED87-49F7-42EB-8EF1-53C309FD492D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "..\UnitTest\UnitTest.csproj", "{D77A18EF-1CAA-4FE1-B1E9-09C67F08AEF9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tarefas.UnitTest", "UnitTest\Tarefas.UnitTest.csproj", "{D77A18EF-1CAA-4FE1-B1E9-09C67F08AEF9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

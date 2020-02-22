@@ -1,0 +1,25 @@
+﻿using System.Data.Entity.ModelConfiguration;
+using Models.Controle_Tarefas;
+
+namespace Infrastructure.Mapping.Controle_Tarefas
+{
+    public class TarefasMap : EntityTypeConfiguration<Tarefas>
+    {
+        public TarefasMap()
+        {
+            // Primary Key
+            this.HasKey(t => new { t.Id_Tarefa });
+
+            ToTable("Tarefas");
+
+            this.Property(t => t.Id_Tarefa).HasColumnName("Id_Tarefa");
+            this.Property(t => t.Titulo).HasColumnName("Titulo");
+            this.Property(t => t.Status).HasColumnName("Status");
+            this.Property(t => t.Descricao).HasColumnName("Descricao");
+            this.Property(t => t.Data_Remocao).HasColumnName("Data_Remocao");
+            this.Property(t => t.Data_Edicao).HasColumnName("Data_Edicao");
+            this.Property(t => t.Data_Criacao).HasColumnName("Data_Criacao");
+            this.Property(t => t.Data_Conclusao).HasColumnName("Data_Conclusao");
+        }
+    }
+}

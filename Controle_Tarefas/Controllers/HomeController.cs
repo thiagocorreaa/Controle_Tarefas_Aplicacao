@@ -1,48 +1,77 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using Business.Controle_Tarefas;
+using DataService.Controle_Tarefas;
 using Models.Controle_Tarefas;
 
 namespace Controle_Tarefas.Controllers
 {
     public class HomeController : Controller
     {
+        private TarefasDataService _tarefaDataService;
+        private TarefasBusiness _tarefasBusiness;
+
+        public TarefasDataService tarefasDataService
+        {
+            get
+            {
+                return this._tarefaDataService = this._tarefaDataService ?? new TarefasDataService();
+            }
+        }
+
+        public TarefasBusiness tarefasBusiness
+        {
+            get
+            {
+                return this._tarefasBusiness = this._tarefasBusiness ?? new TarefasBusiness();
+            }
+        }
+
+        public HomeController()
+        {
+           
+        }
+
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult GestaoTarefas(Tarefas tarefa)
         {
-            ViewBag.Message = "Your application description page.";
+            switch(Request["acao"])
+            {
+                case "remove":
+                    tarefa.Data_Remocao = DateTime.Now;
+                    tarefasDataService.Remove(tarefa);
+                    break;
+                case "edit":
+                    tarefa.Data_Criacao = DateTime.Now;
+                    tarefasDataService.Edit(tarefa);
+                    break;
+                case "create":
+                    tarefa.Data_Criacao = DateTime.Now;
+                    tarefa.Status = tarefa.Status_Descricao.Equals("Ativo");
+                    tarefasDataService.Add(tarefa);
+                    break;
+            }            
 
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return View("Index");
         }
 
         public ActionResult GridTarefas(int draw, int start, int length)
         {
-            List<Tarefas> lstTarefas = new List<Tarefas>();
-
-            lstTarefas.Add(new Tarefas() { Data_Criacao = DateTime.Now, Descricao = "Teste carrega Grid", Status = true, Titulo = "Teste" });
-            lstTarefas.Add(new Tarefas() { Data_Criacao = DateTime.Now, Descricao = "História Curupira", Status = true, Titulo = "História Curupira" });
-            lstTarefas.Add(new Tarefas() { Data_Criacao = DateTime.Now, Descricao = "Boitata", Status = true, Titulo = "Boitata" });
-
             string search = Request.QueryString["search[value]"];
-            int count = 1; // taxas_PreaprovadasBusiness.BuscaListaGridPaginadaCount(search);
+
+            List<Tarefas> tarefas = tarefasBusiness.BuscaListaGridPaginada(search, start, length);
+
+            int count = tarefasDataService.ListAll().Count;
+
             var retorno = new
             {
                 recordsTotal = count,
-                // data = taxas_PreaprovadasBusiness.BuscaListaGridPaginada(search, start, length).Select(x => new { CNPJ = x.Cnpj, Nivel = x.Niveis.Nivel, Data_Upload = DateTime.Parse(x.Data_Insert.ToString()).ToString("dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture), Data_Validade = DateTime.Parse(x.Data_Fin.ToString()).ToString("dd/MM/yyyy ", CultureInfo.InvariantCulture) }),
-                data = lstTarefas,
+                data = tarefas,                
                 recordsFiltered = count,
                 draw = draw
             };
